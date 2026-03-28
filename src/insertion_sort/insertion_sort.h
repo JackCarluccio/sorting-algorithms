@@ -15,4 +15,4 @@ void sort(std::vector<int>& arr) {
     }
 }
 
-}
+} // namespace insertion_sort

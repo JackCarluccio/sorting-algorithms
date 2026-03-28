@@ -6,6 +6,7 @@
 #include "../src/bubble_sort/bubble_sort.h"
 #include "../src/insertion_sort/insertion_sort.h"
 #include "../src/miracle_sort/miracle_sort.h"
+#include "../src/selection_sort/selection_sort.h"
 
 std::function<void(std::vector<int>&)> find_callback(const std::string& algorithm) {
     if (algorithm == "bubble") {
@@ -14,6 +15,8 @@ std::function<void(std::vector<int>&)> find_callback(const std::string& algorith
         return insertion_sort::sort;
     } else if (algorithm == "miracle") {
         return miracle_sort::sort;
+    } else if (algorithm == "selection") {
+        return selection_sort::sort;
     } else {
         throw std::invalid_argument("Unsupported sorting algorithm: " + algorithm);
     }
