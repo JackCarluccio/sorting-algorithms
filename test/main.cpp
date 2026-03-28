@@ -4,11 +4,14 @@
 #include <vector>
 
 #include "../src/bubble_sort/bubble_sort.h"
+#include "../src/insertion_sort/insertion_sort.h"
 #include "../src/miracle_sort/miracle_sort.h"
 
 std::function<void(std::vector<int>&)> find_callback(const std::string& algorithm) {
     if (algorithm == "bubble") {
         return bubble_sort::sort;
+    } else if (algorithm == "insertion") {
+        return insertion_sort::sort;
     } else if (algorithm == "miracle") {
         return miracle_sort::sort;
     } else {
@@ -21,7 +24,7 @@ int main(int argc, char** argv) {
         throw std::invalid_argument("Expected one argument");
     }
 
-    std::vector<int> arr = { 64, 34, 25, 12, 22, 11, 90 };
+    std::vector<int> arr = { 9, 0, 6, 3, 7, 4, 5, 8, 2, 1 };
     std::string algorithm = argv[1];
     auto sort = find_callback(algorithm);
 
